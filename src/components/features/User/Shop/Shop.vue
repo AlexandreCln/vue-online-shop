@@ -4,7 +4,7 @@
 
 <script>
 import ShopProductList from './ShopProductList';
-import { eventBus } from '../../main';
+import { eventBus } from '../../../../main';
 
 export default {
   components: { ShopProductList },
@@ -15,9 +15,9 @@ export default {
   },
   created(){
     this.products = eventBus.products;
-    /* eventBus.$on('update:products', (products) => {
-      this.products = eventBus.products;
-    }) */
+    eventBus.$on('update:products', (products) => {
+      this.products = products;
+    })
   }
 }
 </script>

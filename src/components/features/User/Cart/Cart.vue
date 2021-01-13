@@ -4,7 +4,7 @@
 
 <script>
 import CartProductList from './CartProductList';
-import { eventBus } from '../../main';
+import { eventBus } from '../../../../main';
 
 export default {
   components: { CartProductList },

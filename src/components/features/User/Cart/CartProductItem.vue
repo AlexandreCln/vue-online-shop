@@ -1,7 +1,7 @@
 <template>
   <div class="py-2 d-flex flex-row justify-content-between text-nowrap">
-    <div class="px-2 w-100 d-flex flex-row justify-content-between text-nowrap flex-wrap">
-      <span>{{ item.title }}</span>
+    <div class="toto px-2 w-100 d-flex flex-row justify-content-between text-nowrap flex-wrap">
+      <span class="title">{{ item.title }}</span>
       <span><strong>{{ item.price }} €</strong></span>
     </div>
     <button class="btn-close" @click="removeItemFromCart"></button>
@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { eventBus } from '../../main';
+import { eventBus } from '../../../../main';
 
 export default {
   props : [ 'item' ],
@@ -21,6 +21,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+  .title {
+    color: rgb(45, 120, 182);
+  }
 </style>

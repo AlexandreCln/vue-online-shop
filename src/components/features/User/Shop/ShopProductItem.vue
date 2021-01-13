@@ -11,14 +11,14 @@
       <p>{{ product.description }}</p>
     </div>
     <div>
-      <span>{{ product.price }}</span>
+      <span>{{ product.price }} €</span>
       <button @click="addProductToCart" class="btn btn-primary btn-sm float-end">Commander</button>
     </div>
   </div>
 </template>
 
 <script>
-import { eventBus } from '../../main';
+import { eventBus } from '../../../../main';
 
 export default {
   props: [ 'product' ],
