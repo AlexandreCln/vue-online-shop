@@ -1,13 +1,6 @@
 <template>
   <div class="d-flex flex-rox flex-wrap">
-    <shop-product-item></shop-product-item>
-    <shop-product-item></shop-product-item>
-    <shop-product-item></shop-product-item>
-    <shop-product-item></shop-product-item>
-    <shop-product-item></shop-product-item>
-    <shop-product-item></shop-product-item>
-    <shop-product-item></shop-product-item>
-    <shop-product-item></shop-product-item>
+    <shop-product-item v-for="product in products" :product="product" :key="product.id"></shop-product-item>
   </div>
 </template>
 
@@ -15,7 +8,8 @@
 import ShopProductItem from './ShopProductItem';
 
 export default {
-  components: { ShopProductItem }
+  components: { ShopProductItem },
+  props: [ 'products' ],
 }
 </script>
 

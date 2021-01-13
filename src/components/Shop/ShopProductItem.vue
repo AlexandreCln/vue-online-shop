@@ -12,22 +12,19 @@
     </div>
     <div>
       <span>{{ product.price }}</span>
-      <button class="btn btn-primary btn-sm float-end">Commander</button>
+      <button @click="addProductToCart" class="btn btn-primary btn-sm float-end">Commander</button>
     </div>
   </div>
 </template>
 
 <script>
+import { eventBus } from '../../main';
 
 export default {
-  data(){
-    return {
-      product: {
-        img: 'https://www.cdiscount.com/pdt2/2/9/1/1/550x550/app3700980717291/rw/apple-macbook-pro-13-pouces-2-7ghz-intel-core-i7-4.jpg',
-        title: 'MacBook Air',
-        description: 'Notre portable le plus fin et le plus léger est métamorphosé par la puce Apple M1. Avec des performances de processeur jusqu’à 3,5 fois plus élevées.',
-        price: '1129 €'
-      }
+  props: [ 'product' ],
+  methods: {
+    addProductToCart(){
+      eventBus.addProductToCart( { ...this.product } );
     }
   }
 }

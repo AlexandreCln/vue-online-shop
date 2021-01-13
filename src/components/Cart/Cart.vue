@@ -1,13 +1,26 @@
 <template>
-  <div>cart</div>
+  <cart-product-list :cart="cart" class="p-3"></cart-product-list>
 </template>
 
 <script>
+import CartProductList from './CartProductList';
+import { eventBus } from '../../main';
 
 export default {
+  components: { CartProductList },
+  data(){
+    return {
+      cart: []
+    }
+  },
+  created(){
+    this.cart = eventBus.cart;
+      eventBus.$on('update:cart', (cart) => {
+        this.cart = cart;
+      });
+  }
 }
 </script>
 
 <style>
-
 </style>
