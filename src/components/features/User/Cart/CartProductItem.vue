@@ -2,7 +2,7 @@
   <div class="py-2 d-flex flex-row justify-content-between text-nowrap">
     <div class="toto px-2 w-100 d-flex flex-row justify-content-between text-nowrap flex-wrap">
       <span class="title">{{ item.title }}</span>
-      <span><strong>{{ item.price }} €</strong></span>
+      <span><strong>{{ item.price | price }}</strong></span>
     </div>
     <button class="btn-close" @click="removeItemFromCart"></button>
   </div>

@@ -1,7 +1,11 @@
 <template>
     <div class="d-flex flex-row">
-      <shop class="w-75"></shop>
-      <cart class="w-25"></cart>
+      <transition name="left" appear>
+        <shop class="w-75"></shop>
+      </transition>
+      <transition name="right" appear>
+        <cart class="w-25"></cart>
+      </transition>
     </div>
 </template>
 
@@ -18,6 +22,24 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  @keyframes fromLeft {
+    from {
+      transform: translateX(-20px);
+    }
+    to {}
+  }
+  @keyframes fromRight {
+    from {
+      transform: translateX(20px);
+    }
+    to {}
+  }
 
+  .left-enter-active {
+    animation : fromLeft .5s;
+  }
+  .right-enter-active {
+    animation : fromRight .5s;
+  }
 </style>
