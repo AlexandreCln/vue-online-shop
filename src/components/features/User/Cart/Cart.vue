@@ -4,22 +4,11 @@
 
 <script>
 import CartProductList from './CartProductList';
-import { eventBus } from '../../../../main';
 
 export default {
   components: { CartProductList },
-  data(){
-    return {
-      cart: []
-    }
-  },
-  created(){
-    this.cart = eventBus.cart;
-      eventBus.$on('update:cart', (cart) => {
-        this.cart = cart;
-      });
-  }
-}
+  props: ['cart']
+};
 </script>
 
 <style>

@@ -1,3 +1,3 @@
 export function price(value) {
-    return `${value} €`;
+	return `${value} €`;
 }

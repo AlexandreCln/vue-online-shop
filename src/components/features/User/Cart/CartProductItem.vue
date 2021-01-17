@@ -4,18 +4,18 @@
       <span class="title">{{ item.title }}</span>
       <span><strong>{{ item.price | price }}</strong></span>
     </div>
-    <button class="btn-close" @click="removeItemFromCart"></button>
+    <button class="btn-close" @click="removeItemFromCart(item.id)"></button>
   </div>
 </template>
 
 <script>
-import { eventBus } from '../../../../main';
 
 export default {
   props : [ 'item' ],
   methods: {
-    removeItemFromCart(){
-      eventBus.removeItemFromCart({ ...this.item });
+    removeItemFromCart(payload /* here payload is an id */) {
+      // Call deleteOne() from store, without the mapMutations utilitary function
+      this.$store.commit('cart/deleteOne', payload);
     }
   }
 }
