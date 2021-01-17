@@ -41,13 +41,22 @@ export default {
         }
     },
     methods: {
-        trySubmit(){
+        trySubmit() {
             if (this.formIsValid()) {
                 eventBus.addProduct({ ...this.form });
-                eventBus.changePage('User');
+                this.resetForm();
+                this.$router.push('/shop');
             }
         },
-        formIsValid(){
+        resetForm() {
+            this.form = {
+                img: '',
+                title: '',
+                description: '',
+                price: ''
+            }
+        },
+        formIsValid() {
             this.errors = [];
             if (!this.form.img) {
                 this.errors.push('img required');
